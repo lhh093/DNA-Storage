@@ -118,20 +118,7 @@ for lambda_i = 1:1:length(lambda)
 
         % %译码
 
-        % 无回馈译码
-        % tic;
-        % [v_SP1,v_SP2,iter] = LDPCDecoder_dna_fangfa1( H,y, llr_1, llr_2, iterMax );
-        % v_SP1 = v_SP1(1:N1);
-        % v_SP2 = v_SP2(1:N1);
-        % totalIterSum = totalIterSum + iter;
-        % 删除后tmp个数
-        % tmp=N1-rscode;
-        % v_SP1(end-tmp+1:end) = [];
-        % v_SP2(end-tmp+1:end) = [];
-        % rs译码
-        % Rs_Dec1=rsDecoder(v_SP1');
-        % Rs_Dec2=rsDecoder(v_SP2');
-        % times(i) = toc;
+      
 
         %提出的回馈级联
         tic;
