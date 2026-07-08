@@ -16,34 +16,17 @@ addpath('diag')
 addpath('Low_Density_Parity_Check_-LDPC-_Codes_-_MATLAB_Simulation-main')
 
 % %% H矩阵生成
-% 
- %load("LDPC(1000,500)_(6.3).mat")
- A = IEEE80216e(768, '1/2');
- %A = IEEE80216e(768, '2/3B');
- %A = IEEE80216e(1440, '2/3B');
- %A =double(A);
 
- %load("LDPC(768,308).mat")
- %A =double(H);
- %A = IEEE80216e(1440, '1/2');
+ A = IEEE80216e(768, '1/2');
+ 
  A =double(A);
- %load("LDPC(1440,960).mat")
- %A =double(H);
- %RR=rank(A);
-%[A, A_cut] = func_QC_class1_H(6,61); %LINSHU矩阵生成
-% B=H;
+
 
 [DiagA,GT,H,rankA,N0,K0,M0]=Diag(A) ;%时间长，提前准备GT， load
 [N1,N2]=size(GT');%N1 信息位 N2 码长
 
 
-% %% LINSHU LDPC gen  H矩阵生成与本部分选一使用
-% %[H, H_cut] = func_QC_class1_H(6,61);
-% H = double(IEEE80216e(768, '1/2'));
-% H = MALT(H); %近似下三角编码
-% [tmp, N2] = size(H); 
-% N1=N2-tmp;     %N1 信息位 N2 码长
-%% 
+
 
 lambda=0.002:0.005:0.02;
 BER = zeros(1, length(lambda));
@@ -81,14 +64,7 @@ for lambda_i = 1:1:length(lambda)
         s2 = randi([0, 1], 1, N1);
         x2 = mod(s2 * GT', 2);
  
-        % %近似下三角编码
-        % s1 = randi([0, 1], 1, N1);
-        % ldpc1 = ldpcencode(H, s1);
-        % x1=[s1 ldpc1];
-        % 
-        % s2 = randi([0, 1], 1, N1);
-        % ldpc2 = ldpcencode(H, s2);
-        % x1=[s2 ldpc2];
+        
 
         if sum(mod(H*(x1'), 2)) > 0
             %sprintf('the '+ num2str(i) + ' th encoding is not right');
