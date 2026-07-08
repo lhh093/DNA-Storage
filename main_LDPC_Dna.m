@@ -1,8 +1,7 @@
 
 % LDPC码在DNA纳米孔信道下的matlab仿真
 % 复现论文: [LDPC_Codes_for_Portable_DNA_Storage]
-% 编码者: 刘海航 华南师范大学        
-% 时间: [25.3.24]
+
 clear all
 close all
 clc
